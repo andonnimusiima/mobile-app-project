@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardReceipt"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/gray_light"
+    android:visibility="gone"
+    android:layout_marginBottom="24dp">
+
+    <LinearLayout
+        android:id="@+id/receiptContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OFFICIAL PAYMENT RECEIPT"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/primary"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OHMS Financial Services Co. Ltd"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:layout_marginBottom="16dp"/>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/gray_light" android:layout_marginBottom="16dp"/>
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Receipt No:"/>
+            <TextView android:id="@+id/tvReceiptId" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="RCP-0000" android:textStyle="bold"/>
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date:"/>
+            <TextView android:id="@+id/tvReceiptDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="01-01-2025" android:textStyle="bold"/>
+        </RelativeLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/gray_light" android:layout_marginVertical="16dp"/>
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TOTAL PAID" android:textStyle="bold" android:textSize="14sp"/>
+            <TextView android:id="@+id/tvReceiptAmount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="$0.00" android:textStyle="bold" android:textSize="18sp" android:textColor="@color/secondary"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thank you for choosing OHMS Financial"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:layout_marginTop="24dp"
+            android:alpha="0.5"/>
+
+        <Button
+            android:id="@+id/btnPrintReceipt"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="SAVE AS PDF / PRINT"
+            app:icon="@android:drawable/ic_menu_save"/>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

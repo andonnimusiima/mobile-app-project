@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/surface">
+
+    <LinearLayout
+        android:id="@+id/receiptContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OHMS MICROFINANCE"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Official Repayment Receipt"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp"/>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginBottom="16dp"/>
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Receipt No:" android:textColor="@color/black"/>
+            <TextView android:id="@+id/tvReceiptId" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:textStyle="bold" android:textColor="@color/black"/>
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date:" android:textColor="@color/black"/>
+            <TextView android:id="@+id/tvReceiptDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:textStyle="bold" android:textColor="@color/black"/>
+        </RelativeLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="16dp"/>
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AMOUNT PAID" android:textStyle="bold" android:textColor="@color/black"/>
+            <TextView android:id="@+id/tvReceiptAmount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:textStyle="bold" android:textSize="18sp" android:textColor="@color/black"/>
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Remaining Balance" android:textColor="@color/black"/>
+            <TextView android:id="@+id/tvReceiptBalance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:textStyle="bold" android:textColor="@color/black"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thank you for your timely payment!"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/black"
+            android:textStyle="italic"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnPrint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SAVE AS PDF / PRINT"
+        android:layout_marginTop="24dp"
+        app:icon="@android:drawable/ic_menu_save"/>
+
+    <Button
+        android:id="@+id/btnClose"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CLOSE"/>
+
+</LinearLayout>

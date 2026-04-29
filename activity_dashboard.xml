@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/white"
+            app:title="OHMS Financial"
+            app:menu="@menu/dashboard_menu" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/layoutDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="100dp"
+            android:clipToPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Welcome Header -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="8dp"
+                    android:layout_marginBottom="24dp"
+                    app:cardBackgroundColor="@color/primary">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+                        <TextView
+                            android:id="@+id/tvWelcome"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Welcome!"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tvRole"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Beneficiary"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="14sp"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Loan Types Section for Beneficiaries -->
+                <LinearLayout
+                    android:id="@+id/layoutLoanTypes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Apply for a Specific Loan"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary"
+                        android:layout_marginBottom="12dp"/>
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"
+                        android:layout_marginBottom="24dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingVertical="8dp">
+
+                            <!-- Card 1: Emergency -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/cardEmergency"
+                                style="@style/Widget.Material3.CardView.Elevated"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="12dp"
+                                app:cardCornerRadius="16dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="16dp"
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@android:drawable/ic_dialog_alert"
+                                        app:tint="@color/error"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Emergency"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="8dp"/>
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- Card 2: BodaBoda -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/cardBodaBoda"
+                                style="@style/Widget.Material3.CardView.Elevated"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="12dp"
+                                app:cardCornerRadius="16dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="16dp"
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@android:drawable/ic_menu_directions"
+                                        app:tint="@color/secondary"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="BodaBoda"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="8dp"/>
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- Card 3: School Fees -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/cardSchoolFees"
+                                style="@style/Widget.Material3.CardView.Elevated"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="12dp"
+                                app:cardCornerRadius="16dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="16dp"
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@android:drawable/ic_menu_agenda"
+                                        app:tint="@color/primary"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="School Fees"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="8dp"/>
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- Card 4: Business Boost -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/cardBusinessBoost"
+                                style="@style/Widget.Material3.CardView.Elevated"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="12dp"
+                                app:cardCornerRadius="16dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="16dp"
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@android:drawable/ic_menu_view"
+                                        app:tint="@color/status_approved"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Business Boost"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="8dp"/>
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- Card 5: Top-Up -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/cardTopUp"
+                                style="@style/Widget.Material3.CardView.Elevated"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="12dp"
+                                app:cardCornerRadius="16dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="16dp"
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@android:drawable/ic_input_add"
+                                        app:tint="@color/secondary"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Loan Top-Up"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="8dp"/>
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- Card 6: Quick Cash -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/cardQuickCash"
+                                style="@style/Widget.Material3.CardView.Elevated"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="12dp"
+                                app:cardCornerRadius="16dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="16dp"
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@android:drawable/ic_menu_send"
+                                        app:tint="@color/primary"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Quick Cash"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="8dp"/>
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </LinearLayout>
+
+                <!-- Navigation Chips -->
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:selectionRequired="true"
+                    android:layout_marginBottom="16dp">
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipLoans"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Loans"
+                        android:checked="true"
+                        app:chipIcon="@android:drawable/ic_menu_agenda" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipTransactions"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Full History"
+                        app:chipIcon="@android:drawable/ic_menu_recent_history" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <LinearLayout
+                    android:id="@+id/layoutLoansSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvLoans"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        tools:listitem="@layout/item_loan"/>
+
+                    <TextView
+                        android:id="@+id/tvDailyHistoryHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Daily Repayment History"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="12dp"
+                        android:textColor="@color/primary"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvDailyRepayments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        tools:listitem="@layout/item_transaction"/>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTransactions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone"
+                    tools:listitem="@layout/item_transaction"/>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- REPAYMENT CENTER VIEW -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/layoutRepayments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Repayment Center"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- Payment Form -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPaymentForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                android:layout_marginBottom="24dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Repayment Amount (UGX)"
+                        android:layout_marginBottom="16dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etRepayAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="MoMo Phone Number"
+                        android:layout_marginBottom="16dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etMoMoPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Network:"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rgMoMo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+                        <RadioButton android:id="@+id/rbMtn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MTN MoMo" android:checked="true"/>
+                        <RadioButton android:id="@+id/rbAirtel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Airtel Money" android:layout_marginStart="16dp"/>
+                    </RadioGroup>
+
+                    <Button
+                        android:id="@+id/btnConfirmPay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="INITIATE MOMO PAYMENT"
+                        android:padding="16dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Payment Processing State -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardProcessing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                android:visibility="gone"
+                android:layout_marginBottom="24dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="32dp"
+                    android:gravity="center">
+                    <ProgressBar
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginBottom="16dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Processing Payment..."
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Please check your phone for the PIN prompt"
+                        android:textAlignment="center"
+                        android:layout_marginTop="8dp"
+                        android:alpha="0.7"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Digital Receipt -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardReceipt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/gray_light"
+                android:visibility="gone"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:id="@+id/receiptContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="OFFICIAL PAYMENT RECEIPT"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/primary"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="OHMS Financial Services Co. Ltd"
+                        android:textAlignment="center"
+                        android:textSize="10sp"
+                        android:layout_marginBottom="16dp"/>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/gray_light" android:layout_marginBottom="16dp"/>
+
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Receipt No:"/>
+                        <TextView android:id="@+id/tvReceiptId" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="RCP-0000" android:textStyle="bold"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date:"/>
+                        <TextView android:id="@+id/tvReceiptDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="01-01-2025" android:textStyle="bold"/>
+                    </RelativeLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/gray_light" android:layout_marginVertical="16dp"/>
+
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TOTAL PAID" android:textStyle="bold" android:textSize="14sp"/>
+                        <TextView android:id="@+id/tvReceiptAmount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="UGX 0" android:textStyle="bold" android:textSize="18sp" android:textColor="@color/secondary"/>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Thank you for choosing OHMS Financial"
+                        android:textAlignment="center"
+                        android:textSize="10sp"
+                        android:layout_marginTop="24dp"
+                        android:alpha="0.5"/>
+
+                    <Button
+                        android:id="@+id/btnPrintReceipt"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="SAVE AS PDF / PRINT"
+                        app:icon="@android:drawable/ic_menu_save"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:id="@+id/btnBackFromRepay"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BACK TO DASHBOARD" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="16dp"
+        app:cardBackgroundColor="@color/surface">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:menu="@menu/bottom_nav_menu"
+            app:itemIconTint="@color/nav_item_color"
+            app:itemTextColor="@color/nav_item_color"
+            app:itemRippleColor="@color/primary_variant"
+            app:labelVisibilityMode="labeled"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- FAB for Application -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabApply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="90dp"
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/secondary"
+        app:tint="@color/white" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

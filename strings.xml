@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Microfinance App</string>
+    <string-array name="roles">
+        <item>BENEFICIARY</item>
+        <item>ADMIN</item>
+    </string-array>
+</resources>

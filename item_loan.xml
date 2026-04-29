@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/divider">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvLoanAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Principal: UGX 0"
+                android:textSize="18sp"
+                android:textColor="@color/primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvLoanStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="PENDING"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:background="@drawable/bg_status_pending"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvLoanType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="General Loan"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/secondary"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/tvLoanId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID: ..."
+            android:textSize="11sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="2dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Detailed Tracking Info -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total Amount Due:"
+                    android:textSize="13sp"
+                    android:alpha="0.8"/>
+                <TextView
+                    android:id="@+id/tvTotalDue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UGX 0"
+                    android:textSize="13sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Repaid Amount:"
+                    android:textSize="13sp"
+                    android:alpha="0.8"/>
+                <TextView
+                    android:id="@+id/tvPaidAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UGX 0"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/status_approved"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Remaining Balance:"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tvRemainingBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UGX 0"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/error"/>
+            </LinearLayout>
+
+            <!-- Deadline Tracking -->
+            <LinearLayout
+                android:id="@+id/layoutDeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="#0A000000"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Due Date:"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/tvDueDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="01-01-2025"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvDaysRemaining"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Days Remaining: 30"
+                    android:textSize="12sp"
+                    android:textColor="@color/secondary"
+                    android:layout_marginTop="4dp"
+                    android:textStyle="italic"/>
+
+                <TextView
+                    android:id="@+id/tvPenaltyInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Penalty: UGX 0"
+                    android:textSize="11sp"
+                    android:textColor="@color/error"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+            <TextView
+                android:id="@+id/tvOfficeCharges"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Charges: UGX 0"
+                android:textSize="11sp"
+                android:textColor="@color/error"/>
+            <TextView
+                android:id="@+id/tvNetReceived"
+                android:layout_width="0dp"
+                android:layout_weight="1.2"
+                android:layout_height="wrap_content"
+                android:text="Net Recv: UGX 0"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="@color/status_approved"
+                android:gravity="end"/>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/loanProgress"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginTop="12dp"
+            android:progress="0"
+            android:progressTint="@color/secondary"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvRepaymentDaily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daily: UGX 0"
+            android:textSize="12sp"
+            android:textColor="@color/secondary"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"/>
+
+        <View
+            android:id="@+id/adminDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/adminActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnApprove"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="APPROVE"
+                android:layout_marginEnd="8dp"
+                android:textColor="@android:color/holo_green_dark"/>
+
+            <Button
+                android:id="@+id/btnReject"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="REJECT"
+                android:textColor="@android:color/holo_red_dark"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/userActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnRepay"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="REPAY"
+                android:layout_marginEnd="8dp"
+                app:cornerRadius="8dp"/>
+
+            <Button
+                android:id="@+id/btnSchedule"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SCHEDULE"
+                app:cornerRadius="8dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

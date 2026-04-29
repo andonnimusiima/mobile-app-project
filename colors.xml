@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Professional Dark Theme Colors -->
+    <color name="primary">#7C4DFF</color> <!-- Vibrant Purple -->
+    <color name="primary_variant">#651FFF</color>
+    <color name="secondary">#00E5FF</color> <!-- Bright Cyan -->
+    <color name="background">#0F111A</color> <!-- Deep Midnight Blue/Black -->
+    <color name="surface">#1A1D2D</color> <!-- Slightly lighter dark for cards -->
+    <color name="error">#FF5252</color>
+
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_secondary">#000000</color>
+    <color name="on_background">#E1E1E1</color>
+    <color name="on_surface">#F5F5F5</color>
+
+    <color name="text_secondary">#94A3B8</color> <!-- Slate Gray for secondary text -->
+
+    <!-- Status Colors - Glowing versions for Dark Mode -->
+    <color name="status_pending">#FFD600</color>
+    <color name="status_approved">#00E676</color>
+    <color name="status_rejected">#FF1744</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray_dark">#334155</color>
+    <color name="divider">#2D3748</color>
+
+    <color name="gray_light">#2D3748</color>
+
+    <!-- Navigation Colors -->
+    <color name="nav_item_unselected">#64748B</color>
+    <color name="nav_item_selected">#00E5FF</color>
+</resources>
